@@ -171,6 +171,9 @@ input, textarea { font: inherit; color: inherit; }
 }
 
 .nav-toggle { display: none; color: var(--text); padding: 4px; }
+.nav-toggle svg {
+  fill: var(--accent);
+}
 
 @media (max-width: 860px) {
   .nav-toggle { display: block; }
