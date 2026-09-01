@@ -344,8 +344,11 @@ function initContactForm() {
   const form = document.getElementById("contact-form");
   const note = document.getElementById("form-note");
 
+  const formEndpoint = "https://formspree.io/f/xdeoegzw";
+
   form.addEventListener("submit", (e) => {
     e.preventDefault();
+
     const name = form.name.value.trim();
     const email = form.email.value.trim();
     const message = form.message.value.trim();
@@ -356,12 +359,31 @@ function initContactForm() {
       return;
     }
 
-    const subject = encodeURIComponent(`Portfolio message from ${name}`);
-    const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
-    window.location.href = `mailto:04arush@gmail.com?subject=${subject}&body=${body}`;
-
-    note.textContent = "Opening your mail app with the message filled in…";
-    note.style.color = "#4fd1ae";
+    note.textContent = "Sending your message...";
+    note.style.color = "#e8b24d";
+    
+    fetch(formEndpoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({ name, email, message })
+    })
+    .then(response => {
+      if (response.ok) {
+        note.textContent = "Message sent successfully! I'll get back to you soon.";
+        note.style.color = "#4fd1ae"; 
+        form.reset(); 
+      } else {
+        note.textContent = "Oops! There was a problem submitting your form.";
+        note.style.color = "#e8b24d";
+      }
+    })
+    .catch(error => {
+      note.textContent = "Network error. Please try again later.";
+      note.style.color = "#e8b24d";
+    });
   });
 }
 
