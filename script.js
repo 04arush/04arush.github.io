@@ -200,6 +200,56 @@ const PROJECTS = [
   },
 ];
 
+/* ---------- Data: hackathons ---------- */
+const HACKATHONS = [
+  {
+    title: "ETHOnline 2026",
+    organizer: "ETHGlobal",
+    status: "upcoming", 
+    result: "-",
+    project: "TBD",
+    description: "",
+    github: "-",
+    link: "https://ethglobal.com/events/ethonline2026",
+    timeline: [
+      { label: "Winner Announcement", date: "Sep 16th", status: "upcoming" },
+      { label: "Judging", date: "Sep 14th", status: "upcoming" },
+      { label: "Submission", date: "Sep 13th", status: "upcoming" },
+      { label: "Starts", date: "Sep 4th", status: "upcoming" },
+    ]
+  },
+  {
+    title: "Frostbyte Hackathon Finale",
+    organizer: "Devpost",
+    status: "done", 
+    result: "Participation Award",
+    project: "ZK-Powered Undercollateralized Lending Protocol",
+    description: "A Noir + Barretenberg + Solidity stack enabling privacy-preserving credit verification on-chain for undercollateralised loans without revealing user credit scores.",
+    github: "https://github.com/04arush/ZK-Powered-Uncollateralized-Lending-Protocol",
+    link: "https://frostbyte-hackathon.devpost.com/",
+    timeline: [
+      { label: "Winner Announcement", date: "Jun 20th", status: "done" },
+      { label: "Judging", date: "Apr 15th - Jun 11th", status: "done" },
+      { label: "Submission", date: "Apr 04th - Apr 13th", status: "done" },
+    ]
+  },
+  {
+    title: "Frostbyte Hackathon",
+    organizer: "Devpost",
+    status: "done",
+    result: "Participation & Completion — Moved to Finale",
+    project: "Employee Payroll Manager",
+    description: "A Chainlink Automation-powered on-chain payroll system designed to autonomously trigger and manage recurring payments.",
+    github: "https://github.com/04arush/Employee-Payroll-Manager",
+    link: "https://frostbyte.devpost.com/",
+    timeline: [
+      { label: "Winner Announcement", date: "Apr 07th", status: "done" },
+      { label: "Judging", date: "Mar 18th - Apr 06th", status: "done" },
+      { label: "Submission", date: "Jan 27th - Mar 18th", status: "done" },
+    ]
+  }
+];
+
 /* ---------- Render: certifications ---------- */
 function renderCerts() {
   const list = document.getElementById("certs-list");
@@ -293,6 +343,70 @@ function renderProjects() {
     const card = btn.closest(".project-card");
     const isOpen = card.classList.toggle("is-open");
     btn.setAttribute("aria-expanded", String(isOpen));
+  });
+}
+
+/* ---------- Render: hackathons ---------- */
+function renderHackathons() {
+  const container = document.getElementById("hackathon-timeline");
+  if (!container) return;
+  
+  container.innerHTML = HACKATHONS.map((h, i) => {
+    // Build the dashed sub-timeline
+    const subTimeline = h.timeline.map(t => `
+      <div class="sub-stage sub-stage--${t.status}">
+        <span class="sub-node"></span>
+        <strong>${t.label}:</strong> ${t.date}
+      </div>
+    `).join("");
+    
+    // Build the "applied" style project block if a project exists
+    const projectHTML = h.project !== "-" ? `
+      <div class="stage-applied" style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;">
+          <div style="font-size: 14.5px; line-height: 1.4;">
+            <span style="color: var(--accent); font-weight: 600;">Project:</span> 
+            <span style="color: var(--text); font-weight: 500;">${h.project}</span>
+          </div>
+          ${h.github !== "-" ? `
+          <a href="${h.github}" target="_blank" rel="noopener" class="project-github" aria-label="View on GitHub" style="margin-top: 2px;">
+            <svg width="18" height="18"><use href="#icon-github"/></svg>
+          </a>` : ''}
+        </div>
+        ${h.description ? `<p style="color: var(--text-dim); font-size: 13px; line-height: 1.55; margin: 0;">${h.description}</p>` : ''}
+      </div>
+    ` : '';
+
+    return `
+      <li class="stage stage--${h.status}" data-index="${i}">
+        <span class="stage-node" aria-hidden="true"></span>
+        <div class="stage-card">
+          <button class="stage-header" aria-expanded="false">
+            <div style="flex:1; text-align:left;">
+              <div class="stage-title">${h.title} <span style="font-size:12px; color:var(--text-faint); font-weight:normal;">(${h.organizer})</span></div>
+              ${h.result !== "-" ? `<div style="font-size:12.5px; color:var(--text-dim); margin-top:4px;">Result: ${h.result}</div>` : ''}
+            </div>
+            <span class="stage-status">${h.status === "done" ? "Completed" : "Upcoming"}</span>
+            <svg class="stage-chevron" width="16" height="16" style="margin-left:12px;"><use href="#icon-chevron"/></svg>
+          </button>
+          <div class="stage-details">
+            <div class="sub-timeline">
+              ${subTimeline}
+            </div>
+            ${projectHTML}
+          </div>
+        </div>
+      </li>
+    `;
+  }).join("");
+
+  // Add expand/collapse functionality
+  container.addEventListener("click", (e) => {
+    const header = e.target.closest(".stage-header");
+    if (!header) return;
+    const stage = header.closest(".stage");
+    const isOpen = stage.classList.toggle("is-open");
+    header.setAttribute("aria-expanded", String(isOpen));
   });
 }
 
@@ -392,6 +506,7 @@ document.getElementById("year").textContent = new Date().getFullYear();
 renderCerts();
 renderRoadmap();
 renderProjects();
+renderHackathons();
 initNavToggle();
 initScrollSpy();
 initContactForm();

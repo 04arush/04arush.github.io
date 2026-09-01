@@ -403,7 +403,11 @@ input, textarea { font: inherit; color: inherit; }
 .stage--current .stage-node {
   background: var(--proof-pending);
   border-color: var(--proof-pending);
-  box-shadow: 0 0 0 5px var(--proof-pending-dim);
+  box-shadow: 0 0 0 5px var(--proof-pending-dim); 
+}
+.stage--current .stage-status { 
+  color: var(--proof-pending); 
+  background: var(--proof-pending-dim); 
 }
 .stage-card {
   width: 100%;
@@ -438,7 +442,11 @@ input, textarea { font: inherit; color: inherit; }
   white-space: nowrap;
 }
 .stage--done .stage-status { color: var(--proof-valid); background: var(--proof-valid-dim); }
-.stage--current .stage-status { color: var(--proof-pending); background: var(--proof-pending-dim); }
+.stage--current .stage-status,
+.stage--upcoming .stage-status { 
+  color: var(--proof-pending); 
+  background: var(--proof-pending-dim); 
+}
 .stage-chevron { color: var(--text-faint); transition: transform 0.2s ease; flex-shrink: 0; }
 .stage.is-open .stage-chevron { transform: rotate(180deg); }
 
@@ -639,4 +647,68 @@ input, textarea { font: inherit; color: inherit; }
 .project-card .project-stats li.stat-ongoing {
   color: var(--proof-pending);
   background: var(--proof-pending-dim);
+}
+
+/* ============ HACKATHONS (Right-Sided Timeline Override) ============ */
+.hackathon-timeline::before { left: 17px; }
+
+.hackathon-timeline .stage,
+.hackathon-timeline .stage:nth-child(even) {
+  justify-content: flex-start;
+  padding-left: 44px;
+  padding-right: 0;
+}
+
+.hackathon-timeline .stage-node { left: 17px; }
+.hackathon-timeline .stage-card { max-width: 600px; }
+
+.sub-timeline {
+  position: relative;
+  margin: 12px 0 16px 12px;
+  padding-left: 20px;
+  border-left: 1.5px dashed var(--border);
+}
+
+.sub-stage {
+  position: relative;
+  margin-bottom: 14px;
+  font-size: 13.5px;
+  color: var(--text-dim);
+}
+.sub-stage:last-child { margin-bottom: 0; }
+
+.sub-node {
+  position: absolute;
+  left: -24px;
+  top: 6px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--border);
+}
+
+.sub-stage--done .sub-node {
+  background: var(--proof-valid);
+  border-color: var(--proof-valid);
+}
+
+.sub-stage--upcoming .sub-node {
+  background: var(--proof-pending);
+  border-color: var(--proof-pending);
+}
+
+.hackathon-timeline .stage--upcoming .stage-node {
+  background: var(--proof-pending);
+  border-color: var(--proof-pending);
+}
+
+.hackathon-timeline .stage--upcoming .stage-status {
+  color: var(--proof-pending);
+  background: var(--proof-pending-dim);
+}
+
+#roadmap-timeline .stage--upcoming .stage-status {
+  color: var(--text-faint);
+  background: var(--surface-2);
 }
