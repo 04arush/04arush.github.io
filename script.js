@@ -7,15 +7,15 @@
 
 /* ---------- Data: certifications ---------- */
 const CERTS = [
-  { name: "Noir Programming & ZK Circuits", date: "Apr 2026" },
-  { name: "Fundamentals of Zero-Knowledge Proofs", date: "Mar 2026" },
-  { name: "Advanced Foundry", date: "Mar 2026" },
-  { name: "Foundry Fundamentals", date: "Mar 2026" },
-  { name: "Rust Programming Basics", date: "Feb 2026" },
-  { name: "Advanced Web3 Wallet Security", date: "Feb 2026" },
-  { name: "Web3 Wallet Security Basics", date: "Feb 2026" },
-  { name: "Solidity Smart Contract Development", date: "Jan 2026" },
-  { name: "Blockchain Basics", date: "Dec 2025" },
+  { name: "Noir Programming & ZK Circuits", date: "Apr 2026", url: "https://profiles.cyfrin.io/u/arush/achievements/noir-programming-and-zk-circuits" },
+  { name: "Fundamentals of Zero-Knowledge Proofs", date: "Mar 2026", url: "https://profiles.cyfrin.io/u/arush/achievements/fundamentals-of-zero-knowledge-proofs" },
+  { name: "Advanced Foundry", date: "Mar 2026", url: "https://profiles.cyfrin.io/u/arush/achievements/advanced-foundry" },
+  { name: "Foundry Fundamentals", date: "Mar 2026", url: "https://profiles.cyfrin.io/u/arush/achievements/foundry" },
+  { name: "Rust Programming Basics", date: "Feb 2026", url: "https://profiles.cyfrin.io/u/arush/achievements/rust-programming-basics" },
+  { name: "Advanced Web3 Wallet Security", date: "Feb 2026", url: "https://profiles.cyfrin.io/u/arush/achievements/advanced-web3-wallet-security" },
+  { name: "Web3 Wallet Security Basics", date: "Feb 2026", url: "https://profiles.cyfrin.io/u/arush/achievements/web3-wallet-security-basics" },
+  { name: "Solidity Smart Contract Development", date: "Jan 2026", url: "https://profiles.cyfrin.io/u/arush/achievements/solidity" },
+  { name: "Blockchain Basics", date: "Dec 2025", url: "https://profiles.cyfrin.io/u/arush/achievements/blockchain-basics" },
 ];
 
 /* ---------- Data: ZK study roadmap ----------
@@ -254,7 +254,13 @@ const HACKATHONS = [
 function renderCerts() {
   const list = document.getElementById("certs-list");
   list.innerHTML = CERTS.map(
-    (c) => `<li><span>${c.name}</span><span class="cert-date">${c.date}</span></li>`
+    (c) => `<li>
+      <a href="${c.url}" target="_blank" rel="noopener" class="cert-link" aria-label="View ${c.name} certificate">
+        ${c.name}
+        <svg width="14" height="14" class="cert-icon"><use href="#icon-external"/></svg>
+      </a>
+      <span class="cert-date">${c.date}</span>
+    </li>`
   ).join("");
 }
 

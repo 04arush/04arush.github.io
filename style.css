@@ -340,6 +340,29 @@ input, textarea { font: inherit; color: inherit; }
 .certs-list li:last-child { border-bottom: none; }
 .cert-date { font-family: var(--font-mono); font-size: 12.5px; color: var(--text-faint); white-space: nowrap; }
 
+.cert-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+  transition: color 0.15s ease;
+}
+
+.cert-link:hover {
+  color: var(--accent-strong);
+}
+
+.cert-icon {
+  fill: currentColor;
+  opacity: 0.6;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.cert-link:hover .cert-icon {
+  transform: translate(2px, -2px);
+  opacity: 1;
+}
+
 /* ============ ROADMAP ============ */
 .roadmap-progress {
   display: flex;
