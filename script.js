@@ -181,6 +181,15 @@ const PROJECTS = [
     github: "https://github.com/04arush/Raffle-Contest",
   },
   {
+    title: "StreamProof",
+    tagline: "Privacy-preserving royalty tier verification and settlement protocol.",
+    tags: ["Noir", "Poseidon2", "Barretenberg", "Solidity", "ENSv2"],
+    description:
+      "A platform commits streaming data for a track as a Merkle root, and an artist proves via a zero-knowledge circuit that their verified stream count crosses a specific payout tier — without revealing the exact count. A valid on-chain proof automatically triggers a fixed USDC payout via Arc Testnet. Identity is secured using ENSv2 Enhanced Access Control, granting the platform a single, narrowly scoped write permission.",
+    stats: ["Arc Testnet deployed", "ENSv2 Scoped Access", "Poseidon2 Hashing", "Privy embedded wallets"],
+    github: "https://stream-proof-npgp.vercel.app/",
+  },
+  {
     title: "AMM DEX",
     tagline: "A constant-product exchange for two custom tokens, with a wallet-connected frontend.",
     tags: ["Solidity", "Foundry", "Constant-Product AMM"],
@@ -205,23 +214,23 @@ const HACKATHONS = [
   {
     title: "ETHOnline 2026",
     organizer: "ETHGlobal",
-    status: "upcoming", 
-    result: "-",
-    project: "TBD",
-    description: "",
-    github: "-",
+    status: "done",
+    result: "Participation Award",
+    project: "StreamProof",
+    description: "A privacy-preserving royalty tier verification and settlement protocol built with Noir, Solidity, and ENSv2.",
+    github: "https://github.com/04arush/StreamProof",
     link: "https://ethglobal.com/events/ethonline2026",
     timeline: [
       { label: "Winner Announcement", date: "Sep 16th", status: "upcoming" },
-      { label: "Judging", date: "Sep 14th", status: "upcoming" },
-      { label: "Submission", date: "Sep 13th", status: "upcoming" },
-      { label: "Starts", date: "Sep 4th", status: "upcoming" },
+      { label: "Judging", date: "Sep 14th", status: "done" },
+      { label: "Submission", date: "Sep 13th", status: "done" },
+      { label: "Starts", date: "Sep 4th", status: "done" },
     ]
   },
   {
     title: "Frostbyte Hackathon Finale",
     organizer: "Devpost",
-    status: "done", 
+    status: "done",
     result: "Participation Award",
     project: "ZK-Powered Undercollateralized Lending Protocol",
     description: "A Noir + Barretenberg + Solidity stack enabling privacy-preserving credit verification on-chain for undercollateralised loans without revealing user credit scores.",
@@ -356,7 +365,7 @@ function renderProjects() {
 function renderHackathons() {
   const container = document.getElementById("hackathon-timeline");
   if (!container) return;
-  
+
   container.innerHTML = HACKATHONS.map((h, i) => {
     // Build the dashed sub-timeline
     const subTimeline = h.timeline.map(t => `
@@ -365,13 +374,13 @@ function renderHackathons() {
         <strong>${t.label}:</strong> ${t.date}
       </div>
     `).join("");
-    
+
     // Build the "applied" style project block if a project exists
     const projectHTML = h.project !== "-" ? `
       <div class="stage-applied" style="display: flex; flex-direction: column; gap: 8px;">
         <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;">
           <div style="font-size: 14.5px; line-height: 1.4;">
-            <span style="color: var(--accent); font-weight: 600;">Project:</span> 
+            <span style="color: var(--accent); font-weight: 600;">Project:</span>
             <span style="color: var(--text); font-weight: 500;">${h.project}</span>
           </div>
           ${h.github !== "-" ? `
@@ -481,7 +490,7 @@ function initContactForm() {
 
     note.textContent = "Sending your message...";
     note.style.color = "#e8b24d";
-    
+
     fetch(formEndpoint, {
       method: "POST",
       headers: {
@@ -493,8 +502,8 @@ function initContactForm() {
     .then(response => {
       if (response.ok) {
         note.textContent = "Message sent successfully! I'll get back to you soon.";
-        note.style.color = "#4fd1ae"; 
-        form.reset(); 
+        note.style.color = "#4fd1ae";
+        form.reset();
       } else {
         note.textContent = "Oops! There was a problem submitting your form.";
         note.style.color = "#e8b24d";
