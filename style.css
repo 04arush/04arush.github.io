@@ -47,6 +47,12 @@ body {
   font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main {
+  flex: 1;
 }
 h1, h2, h3 { font-family: var(--font-display); font-weight: 600; margin: 0; color: var(--text); }
 p { margin: 0; }
@@ -426,11 +432,11 @@ input, textarea { font: inherit; color: inherit; }
 .stage--current .stage-node {
   background: var(--proof-pending);
   border-color: var(--proof-pending);
-  box-shadow: 0 0 0 5px var(--proof-pending-dim); 
+  box-shadow: 0 0 0 5px var(--proof-pending-dim);
 }
-.stage--current .stage-status { 
-  color: var(--proof-pending); 
-  background: var(--proof-pending-dim); 
+.stage--current .stage-status {
+  color: var(--proof-pending);
+  background: var(--proof-pending-dim);
 }
 .stage-card {
   width: 100%;
@@ -466,9 +472,9 @@ input, textarea { font: inherit; color: inherit; }
 }
 .stage--done .stage-status { color: var(--proof-valid); background: var(--proof-valid-dim); }
 .stage--current .stage-status,
-.stage--upcoming .stage-status { 
-  color: var(--proof-pending); 
-  background: var(--proof-pending-dim); 
+.stage--upcoming .stage-status {
+  color: var(--proof-pending);
+  background: var(--proof-pending-dim);
 }
 .stage-chevron { color: var(--text-faint); transition: transform 0.2s ease; flex-shrink: 0; }
 .stage.is-open .stage-chevron { transform: rotate(180deg); }
@@ -511,8 +517,8 @@ input, textarea { font: inherit; color: inherit; }
   display: none;
 }
 .stage.is-open .stage-applied,
-.stage:hover .stage-applied { 
-  display: block; 
+.stage:hover .stage-applied {
+  display: block;
 }
 
 @media (max-width: 760px) {
@@ -734,4 +740,45 @@ input, textarea { font: inherit; color: inherit; }
 #roadmap-timeline .stage--upcoming .stage-status {
   color: var(--text-faint);
   background: var(--surface-2);
+}
+
+/* ============ STUDY SECTION ============ */
+.study-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+.study-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.study-card:hover {
+  border-color: var(--accent-dim);
+  transform: translateY(-2px);
+}
+.study-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--text);
+}
+.study-checkpoint {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text);
+  margin-top: 8px;
+}
+.stage-header-static {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  text-align: left;
+}
+.stage-details-static {
+  padding: 0 16px 16px;
 }

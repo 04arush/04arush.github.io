@@ -149,6 +149,112 @@ const ROADMAP = [
   },
 ];
 
+/* ---------- Data: Blockchain & Full-Stack Roadmap ---------- */
+const BLOCKCHAIN_ROADMAP = [
+  {
+    title: "Prerequisites",
+    status: "done",
+    subtopics: [
+      "Programming languages — JS/TS, Python, Rust",
+      "Math — Sets, Functions, Arithmetic",
+      "Version control — Git"
+    ]
+  },
+  {
+    title: "Blockchain & EVM Fundamentals",
+    status: "done",
+    subtopics: [
+      "Consensus (PoW vs PoS) & 51% Attacks",
+      "State & State Transition Function",
+      "EVM — Accounts (EOA vs Contract), Nonce, Bytecode",
+      "Transactions, Gas limits, and Base/Priority fees"
+    ]
+  },
+  {
+    title: "Solidity Basics",
+    status: "done",
+    subtopics: [
+      "Primitive & Value Types, Mappings, Structs, Enums",
+      "Storage vs Memory vs Calldata",
+      "Visibility, Modifiers, Events, Errors",
+      "Inheritance, virtual/override, super, Delegatecall",
+      "Fallback & Receive functions, low-level calls"
+    ]
+  },
+  {
+    title: "Foundry & Testing",
+    status: "done",
+    subtopics: [
+      "Anvil (local chain), Cast (CLI), Chisel (playground)",
+      "Cheatcodes (vm.prank, vm.roll, vm.warp, vm.sign)",
+      "Storage manipulation (vm.store) & Mocking (mockCall)",
+      "Fuzz testing & authorization assertions"
+    ]
+  },
+  {
+    title: "Smart Contract Security",
+    status: "current",
+    subtopics: [
+      "Reentrancy & ReentrancyGuard",
+      "Arithmetic Over/Underflow (SafeMath, unchecked blocks)",
+      "Self Destruct & forced ether vulnerabilities",
+      "Accessing Private Data on-chain & Delegatecall risks",
+      "Denial of Service (DoS) via failed calls",
+      "tx.origin phishing & Front Running (Commit-Reveal)",
+      "Signature Replay & Block Timestamp Manipulation",
+      "Vault Inflation (ERC4626 Decimal Offset) & 63/64 Gas Rule"
+    ],
+    applied: "Solving Ethernaut levels (16/40 completed)"
+  },
+  {
+    title: "Full-Stack (Next.js)",
+    status: "upcoming",
+    subtopics: [
+      "React fundamentals & Next.js App Router",
+      "Wallet connection (wagmi / viem / RainbowKit)",
+      "Reading/Writing contract state from the frontend",
+      "Indexing on-chain events"
+    ]
+  },
+  {
+    title: "Solana",
+    status: "upcoming",
+    subtopics: [
+      "Solana Account Model & PDAs (Program Derived Addresses)",
+      "Rust smart contracts vs Solidity",
+      "Anchor framework fundamentals",
+      "Client-side integration with solana/web3.js"
+    ]
+  }
+];
+
+/* ---------- Data: Study Domains ---------- */
+const STUDY_DOMAINS = [
+  { domain: "Zero-Knowledge Engineering", progress: 75, checkpoint: "STARKs & FRI", link: "zk-roadmap.html" },
+  { domain: "Blockchain, Full-Stack & Solana", progress: 65, checkpoint: "Smart Contract Security & Auditing", link: "blockchain-roadmap.html" }
+];
+
+/* ---------- Render: Study Section ---------- */
+function renderStudy() {
+  const container = document.getElementById("study-grid");
+  if (!container) return;
+
+  container.innerHTML = STUDY_DOMAINS.map(d => `
+    <div class="study-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+      <div>
+        <h3 class="study-title">${d.domain}</h3>
+        <div class="roadmap-progress-bar" style="margin: 12px 0; height: 4px;">
+          <div class="roadmap-progress-fill" style="width: ${d.progress}%;"></div>
+        </div>
+        <p class="study-checkpoint"><span style="color:var(--text-faint)">Current checkpoint:</span><br/>${d.checkpoint}</p>
+      </div>
+      <a href="${d.link}" class="btn btn-ghost" style="margin-top: 20px; width: 100%; justify-content: center; font-size: 13.5px; padding: 8px 12px;">
+        View Roadmap
+      </a>
+    </div>
+  `).join("");
+}
+
 /* ---------- Data: projects, strongest to weakest ----------
    Ranked by technical depth: full ZK-circuit + contract + test
    rigor first, down to an in-progress security-practice repo. */
@@ -221,7 +327,7 @@ const HACKATHONS = [
     github: "https://github.com/04arush/StreamProof",
     link: "https://ethglobal.com/events/ethonline2026",
     timeline: [
-      { label: "Winner Announcement", date: "Sep 16th", status: "upcoming" },
+      { label: "Winner Announcement", date: "Sep 16th", status: "done" },
       { label: "Judging", date: "Sep 14th", status: "done" },
       { label: "Submission", date: "Sep 13th", status: "done" },
       { label: "Starts", date: "Sep 4th", status: "done" },
@@ -273,35 +379,41 @@ function renderCerts() {
   ).join("");
 }
 
-/* ---------- Render: roadmap ---------- */
+/* ---------- Render: Dynamic Roadmap ---------- */
 const STATUS_LABEL = { done: "Done", current: "Studying now", upcoming: "Upcoming" };
 
-function renderRoadmap() {
-  const doneCount = ROADMAP.filter((s) => s.status === "done").length;
-  const pct = Math.round((doneCount / ROADMAP.length) * 100);
+function renderRoadmap(dataArray, progressId, timelineId) {
+  const progressEl = document.getElementById(progressId);
+  const timelineEl = document.getElementById(timelineId);
+  if (!timelineEl) return;
 
-  document.getElementById("roadmap-progress").innerHTML = `
-    <span>${doneCount} of ${ROADMAP.length} stages complete</span>
-    <div class="roadmap-progress-bar"><div class="roadmap-progress-fill" style="width:${pct}%"></div></div>
-    <span>${pct}%</span>
-  `;
+  const doneCount = dataArray.filter((s) => s.status === "done").length;
+  const pct = Math.round((doneCount / dataArray.length) * 100);
 
-  const timeline = document.getElementById("roadmap-timeline");
-  timeline.innerHTML = ROADMAP.map((stage, i) => {
+  if (progressEl) {
+    progressEl.innerHTML = `
+      <span>${doneCount} of ${dataArray.length} stages complete</span>
+      <div class="roadmap-progress-bar"><div class="roadmap-progress-fill" style="width:${pct}%"></div></div>
+      <span>${pct}%</span>
+    `;
+  }
+
+  timelineEl.innerHTML = dataArray.map((stage, i) => {
     const num = String(i + 1).padStart(2, "0");
     const subtopics = stage.subtopics.map((s) => `<li>${s}</li>`).join("");
-    const applied = stage.applied ? `<p class="stage-applied">${stage.applied}</p>` : "";
+    // applied section is forced to display block for static view
+    const applied = stage.applied ? `<p class="stage-applied" style="display:block;">${stage.applied}</p>` : "";
+
     return `
       <li class="stage stage--${stage.status}" data-index="${i}">
         <span class="stage-node" aria-hidden="true"></span>
         <div class="stage-card">
-          <button class="stage-header" aria-expanded="false">
+          <div class="stage-header-static">
             <span class="stage-num">${num}</span>
             <span class="stage-title">${stage.title}</span>
             <span class="stage-status">${STATUS_LABEL[stage.status]}</span>
-            <svg class="stage-chevron" width="16" height="16"><use href="#icon-chevron"/></svg>
-          </button>
-          <div class="stage-details">
+          </div>
+          <div class="stage-details-static">
             <ul class="stage-subtopics">${subtopics}</ul>
             ${applied}
           </div>
@@ -309,14 +421,6 @@ function renderRoadmap() {
       </li>
     `;
   }).join("");
-
-  timeline.addEventListener("click", (e) => {
-    const header = e.target.closest(".stage-header");
-    if (!header) return;
-    const stage = header.closest(".stage");
-    const isOpen = stage.classList.toggle("is-open");
-    header.setAttribute("aria-expanded", String(isOpen));
-  });
 }
 
 /* ---------- Render: projects ---------- */
@@ -471,8 +575,9 @@ function initScrollSpy() {
 /* ---------- Contact form: compose a mailto ---------- */
 function initContactForm() {
   const form = document.getElementById("contact-form");
-  const note = document.getElementById("form-note");
+  if (!form) return; // Exit if not on the contact page
 
+  const note = document.getElementById("form-note");
   const formEndpoint = "https://formspree.io/f/xdeoegzw";
 
   form.addEventListener("submit", (e) => {
@@ -517,11 +622,22 @@ function initContactForm() {
 }
 
 /* ---------- Init ---------- */
-document.getElementById("year").textContent = new Date().getFullYear();
-renderCerts();
-renderRoadmap();
-renderProjects();
-renderHackathons();
+const yearEl = document.getElementById("year");
+if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+if (document.getElementById("certs-list")) renderCerts();
+if (document.getElementById("project-grid")) renderProjects();
+if (document.getElementById("hackathon-timeline")) renderHackathons();
+if (document.getElementById("study-grid")) renderStudy();
+
+// Trigger specific roadmaps
+if (document.getElementById("zk-roadmap-timeline")) {
+  renderRoadmap(ROADMAP, "zk-roadmap-progress", "zk-roadmap-timeline");
+}
+if (document.getElementById("blockchain-roadmap-timeline")) {
+  renderRoadmap(BLOCKCHAIN_ROADMAP, "blockchain-roadmap-progress", "blockchain-roadmap-timeline");
+}
+
 initNavToggle();
 initScrollSpy();
 initContactForm();

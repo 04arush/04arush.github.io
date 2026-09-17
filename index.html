@@ -38,8 +38,8 @@
       <a href="#about" data-nav>about</a>
       <a href="#skills" data-nav>skills</a>
       <a href="#work" data-nav>work</a>
-      <a href="#roadmap" data-nav>roadmap</a>
-      <a href="#contact" data-nav>contact</a>
+      <a href="#study" data-nav>study</a>
+      <a href="contact.html">contact</a>
       <a class="nav-resume" href="resume.pdf" target="_blank" rel="noopener"><svg width="14" height="16"><use href="#icon-download"/></svg>resume</a>
     </nav>
 
@@ -75,14 +75,12 @@
       <p class="hero-eyebrow">zero-knowledge engineer&ensp;·&ensp;smart contract developer</p>
       <h1 class="hero-name">Arush Singh</h1>
       <p class="hero-lede">
-        I build Zero-Knowledge circuits in Noir and the Solidity contracts that verify
-        them — undercollateralized lending, proof-of-solvency, provably fair randomness.
-        Currently deep in STARKs and FRI.
+        I engineer zero-knowledge circuits in Noir and write the secure Solidity smart contracts that verify them on-chain, bridging advanced cryptography with practical decentralized applications.
       </p>
 
       <div class="hero-actions">
         <a class="btn btn-primary" href="#work">See the work</a>
-        <a class="btn btn-ghost" href="#contact">Get in touch</a>
+        <a class="btn btn-ghost" href="contact.html">Get in touch</a>
       </div>
 
       <ul class="hero-socials" aria-label="Social links">
@@ -106,16 +104,16 @@
         <p>
           I'm a self-taught blockchain developer specializing in Solidity smart contracts
           and Zero-Knowledge cryptography, with a focus on DeFi protocols, on-chain
-          automation, and rigorous testing. I've built and deployed contracts integrating
-          Chainlink VRF and Automation, and written ZK circuits in Noir — spanning
-          Merkle Sum Tree proof-of-solvency and undercollateralized credit verification —
-          with on-chain proof verification via Barretenberg's UltraHonk.
+          automation, and rigorous testing. I build and deploy robust contract architectures
+          integrating Chainlink services, and author ZK circuits in Noir with on-chain
+          proof verification via Barretenberg's UltraHonk.
         </p>
         <p>
-          My foundation is in smart contract security: reentrancy, access control, and
-          invariant &amp; fuzz testing. I'm now working toward a
-          <strong>Zero-Knowledge Engineer</strong> role as my primary goal, while staying
-          open to smart-contract development roles at ZK-adjacent teams along the way.
+          My foundation is deeply rooted in smart contract security—prioritizing
+          comprehensive access control, reentrancy protection, and extensive invariant
+          and fuzz testing. I'm currently working toward a
+          <strong>Zero-Knowledge Engineer</strong> role as my primary focus, while staying
+          open to smart-contract development opportunities at ZK-adjacent teams along the way.
         </p>
 
         <dl class="about-facts">
@@ -126,10 +124,6 @@
           <div>
             <dt>Studying</dt>
             <dd>Bachelor's - CS</dd><dd style="color: #797979"><i>2023 - Present</i></dd>
-          </div>
-          <div>
-            <dt>Right now</dt>
-            <dd>STARKs &amp; FRI</dd>
           </div>
         </dl>
       </div>
@@ -209,66 +203,22 @@
     </div>
   </section>
 
-  <!-- ============ ROADMAP ============ -->
-  <section class="section" id="roadmap">
-    <div class="section-inner">
-      <div class="section-head">
-        <p class="kicker">roadmap</p>
-        <h2>The path to ZK engineer</h2>
-        <p class="section-dek">
-          The study plan I'm actually following, stage by stage. Hover or click a stage for a
-          more detail on what it covers and where it shows up in
-          my work.
-        </p>
-      </div>
-
-      <div class="roadmap-progress" id="roadmap-progress">
-        <!-- rendered by script.js -->
-      </div>
-
-      <ol class="roadmap-timeline" id="roadmap-timeline">
-        <!-- rendered by script.js -->
-      </ol>
-    </div>
-  </section>
-
-  <!-- ============ CONTACT ============ -->
-  <section class="section" id="contact">
-    <div class="section-inner contact-grid">
-      <div class="section-head">
-        <p class="kicker">contact</p>
-        <h2>Let's talk</h2>
-        <p class="section-dek">
-          Open to Zero-Knowledge Engineer roles and smart-contract work at ZK-adjacent
-          teams for full-time / contract / freelance opportunities.
-        </p>
-
-        <ul class="contact-list">
-          <li><a href="mailto:04arush@gmail.com"><svg width="16" height="16"><use href="#icon-mail"/></svg>04arush@gmail.com</a></li>
-          <li><a href="https://github.com/04arush" target="_blank" rel="noopener"><svg width="16" height="16"><use href="#icon-github"/></svg>04arush</a></li>
-          <li><a href="https://linkedin.com/in/04arush" target="_blank" rel="noopener"><svg width="16" height="16"><use href="#icon-linkedin"/></svg>04arush</a></li>
-          <li><a href="https://x.com/04arush" target="_blank" rel="noopener"><svg width="16" height="16"><use href="#icon-x"/></svg>04arush</a></li>
-        </ul>
-      </div>
-
-      <form class="contact-form" id="contact-form" novalidate>
-        <div class="form-row">
-          <label for="cf-name">Name</label>
-          <input type="text" id="cf-name" name="name" autocomplete="name" required />
+  <!-- ============ STUDY ============ -->
+    <section class="section" id="study">
+      <div class="section-inner">
+        <div class="section-head">
+          <p class="kicker">current focus</p>
+          <h2>What I'm Studying</h2>
+          <p class="section-dek">
+            The domains I am actively exploring right now, ranked by priority.
+          </p>
         </div>
-        <div class="form-row">
-          <label for="cf-email">Email</label>
-          <input type="email" id="cf-email" name="email" autocomplete="email" required />
+
+        <div class="study-grid" id="study-grid">
+          <!-- rendered by script.js -->
         </div>
-        <div class="form-row">
-          <label for="cf-message">Message</label>
-          <textarea id="cf-message" name="message" rows="5" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Send message</button>
-        <p class="form-note" id="form-note" role="status" aria-live="polite"></p>
-      </form>
-    </div>
-  </section>
+      </div>
+    </section>
 
 </main>
 
