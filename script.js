@@ -113,7 +113,7 @@ const ROADMAP = [
   },
   {
     title: "STARKs",
-    status: "current",
+    status: "done",
     subtopics: [
       "FRI (Fast Reed–Solomon IOP)",
       "Transparent setup vs. SNARKs' trusted setup",
