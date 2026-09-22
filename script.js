@@ -230,7 +230,7 @@ const BLOCKCHAIN_ROADMAP = [
 
 /* ---------- Data: Study Domains ---------- */
 const STUDY_DOMAINS = [
-  { domain: "Zero-Knowledge Engineering", progress: 75, checkpoint: "STARKs & FRI", link: "zk-roadmap.html" },
+  { domain: "Zero-Knowledge Engineering", progress: 75, checkpoint: "Rust & arkworks", link: "zk-roadmap.html" },
   { domain: "Blockchain, Full-Stack & Solana", progress: 65, checkpoint: "Smart Contract Security & Auditing", link: "blockchain-roadmap.html" }
 ];
 
