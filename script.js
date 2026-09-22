@@ -122,7 +122,7 @@ const ROADMAP = [
   },
   {
     title: "Rust",
-    status: "upcoming",
+    status: "current",
     subtopics: [
       "arkworks — implementing circuit primitives",
       "halo2 — building a circuit, the base for several <u>zkEVMs</u>",
