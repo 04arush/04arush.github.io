@@ -234,6 +234,7 @@ const STUDY_DOMAINS = [
   { domain: "Blockchain, Full-Stack & Solana", progress: 65, checkpoint: "Smart Contract Security & Auditing", link: "blockchain-roadmap.html" }
 ];
 
+
 /* ---------- Render: Study Section ---------- */
 function renderStudy() {
   const container = document.getElementById("study-grid");
