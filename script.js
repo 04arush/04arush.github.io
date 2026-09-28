@@ -80,6 +80,7 @@ const ROADMAP = [
       "Groth16 conversion",
       "The Powers of Tau ceremony",
     ],
+    applied: "Applied in ZKVote — a Circom circuit with Groth16 proofs verified on-chain",
   },
   {
     title: "Noir — Domain-Specific Lang.",
@@ -99,7 +100,7 @@ const ROADMAP = [
       "Why its setup is universal",
       "Proving systems built on it — Noir, halo2",
     ],
-    applied: "UltraHonk (Barretenberg's PLONK-based backend) verifies both ZK projects on-chain",
+    applied: "UltraHonk (Barretenberg's PLONK-based backend) verifies the Noir projects on-chain",
   },
   {
     title: "On-chain verification",
@@ -234,6 +235,7 @@ const STUDY_DOMAINS = [
   { domain: "Blockchain, Full-Stack & Solana", progress: 65, checkpoint: "Smart Contract Security & Auditing", link: "blockchain-roadmap.html" }
 ];
 
+
 /* ---------- Render: Study Section ---------- */
 function renderStudy() {
   const container = document.getElementById("study-grid");
@@ -278,6 +280,15 @@ const PROJECTS = [
     github: "https://github.com/04arush/ZK-Powered-Uncollateralized-Lending-Protocol",
   },
   {
+    title: "ZKVote",
+    tagline: "A commit-nullifier voting DApp with in-browser Groth16 proofs, live on Sepolia.",
+    tags: ["Circom", "Groth16", "snarkjs", "Poseidon", "Solidity", "Foundry"],
+    description:
+      "A full-stack voting DApp built as a final-year project. A Circom circuit binds a Poseidon commitment to the voter's choice and derives a per-proposal nullifier; Groth16 proofs are generated in the browser via snarkjs and verified on-chain by a snarkjs-generated verifier. ZKVoting.sol checks the deadline, commitment, and nullifier state before verification and tallies votes, while an append-only nullifier registry blocks double-voting. Includes a React/ethers.js frontend and a Node/MySQL election-metadata API.",
+    stats: ["Circom → Groth16 → Solidity pipeline", "Sepolia deployed", "In-browser proving", "Nullifier double-vote guard"],
+    github: "https://github.com/04arush/ZKVote",
+  },
+  {
     title: "Decentralized Provably Fair Raffle",
     tagline: "A raffle that runs itself — Chainlink VRF picks the winner, Automation calls the shot.",
     tags: ["Solidity", "Chainlink VRF v2.5", "Chainlink Automation", "Foundry"],
@@ -294,6 +305,15 @@ const PROJECTS = [
       "A platform commits streaming data for a track as a Merkle root, and an artist proves via a zero-knowledge circuit that their verified stream count crosses a specific payout tier — without revealing the exact count. A valid on-chain proof automatically triggers a fixed USDC payout via Arc Testnet. Identity is secured using ENSv2 Enhanced Access Control, granting the platform a single, narrowly scoped write permission.",
     stats: ["Arc Testnet deployed", "ENSv2 Scoped Access", "Poseidon2 Hashing", "Privy embedded wallets"],
     github: "https://stream-proof-npgp.vercel.app/",
+  },
+  {
+    title: "Audit Reports",
+    tagline: "Smart contract security audit reports, starting with a CodeHawks practice audit.",
+    tags: ["Security Auditing", "Solidity", "CodeHawks"],
+    description:
+      "A growing collection of my smart contract audit reports as PDFs. The first is a CodeHawks AI-judged practice audit, where I found 5 of the 6 high-severity issues, a medium, and 2 lows. New reports get added here as I complete more audits.",
+    stats: ["5 of 6 highs found", "1 medium", "2 lows", "Ongoing"],
+    github: "https://github.com/04arush/Audit-Reports",
   },
   {
     title: "AMM DEX",
@@ -448,20 +468,16 @@ function renderProjects() {
           <p class="project-desc">${p.description}</p>
           <ul class="project-stats">${stats}</ul>
         </div>
-        <button class="project-toggle" aria-expanded="false">
-          <span>Details</span>
-          <svg width="14" height="14"><use href="#icon-chevron"/></svg>
-        </button>
       </article>
     `;
   }).join("");
 
+  // Desktop: cards expand on hover (pure CSS). Touch: tap a card to expand it.
   grid.addEventListener("click", (e) => {
-    const btn = e.target.closest(".project-toggle");
-    if (!btn) return;
-    const card = btn.closest(".project-card");
-    const isOpen = card.classList.toggle("is-open");
-    btn.setAttribute("aria-expanded", String(isOpen));
+    if (window.matchMedia("(hover: hover)").matches) return;
+    if (e.target.closest(".project-github")) return;
+    const card = e.target.closest(".project-card");
+    if (card) card.classList.toggle("is-open");
   });
 }
 
