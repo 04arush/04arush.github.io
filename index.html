@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arush Singh – Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&amp;family=DM+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <!-- Permanent Header -->
@@ -25,24 +29,57 @@
                 <div class="resume-dropdown-wrapper">
                     <button class="resume-btn" id="resumeToggleBtn">
                         Resume
-                        <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
                     </button>
                     <div class="resume-popup" id="resumePopup">
                         <a href="sc_dev_resume.pdf">Smart Contracts Dev. Resume</a>
-                        <a href="zk_eng_resume.pdf">Protocol &amp; ZK Eng. Resume</a>
+                        <a href="protocol_zk_eng_resume.pdf">Protocol &amp; ZK Eng. Resume</a>
                     </div>
                 </div>
 
                 <!-- Dark/Light Theme Switch -->
                 <button class="theme-switch" id="themeSwitch" aria-label="Toggle Theme">
                     <!-- Sun Icon -->
-                    <svg class="sun-icon" viewBox="0 0 24 24"><path d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 11.25a.75.75 0 0 1 0 1.5h-2.25a.75.75 0 0 1 0-1.5h2.25ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18.75a.75.75 0 0 1 .75.75V21.75a.75.75 0 0 1-1.5 0v-2.25a.75.75 0 0 1 .75-.75ZM5.106 17.834a.75.75 0 0 0-1.06 1.06l1.59 1.591a.75.75 0 1 0 1.061-1.06l-1.59-1.591ZM2.25 12a.75.75 0 0 1 0-1.5h2.25a.75.75 0 0 1 0 1.5H2.25ZM6.166 5.106a.75.75 0 0 0 1.06 1.06l1.591-1.59a.75.75 0 1 0-1.06-1.061l-1.591 1.59Z"/></svg>
+                    <svg class="sun-icon" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="4.5" />
+                        <g stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none">
+                            <line x1="12" y1="2.5" x2="12" y2="4.75" />
+                            <line x1="12" y1="19.25" x2="12" y2="21.5" />
+                            <line x1="2.5" y1="12" x2="4.75" y2="12" />
+                            <line x1="19.25" y1="12" x2="21.5" y2="12" />
+                            <line x1="5.28" y1="5.28" x2="6.87" y2="6.87" />
+                            <line x1="17.13" y1="6.87" x2="18.72" y2="5.28" />
+                            <line x1="5.28" y1="18.72" x2="6.87" y2="17.13" />
+                            <line x1="17.13" y1="17.13" x2="18.72" y2="18.72" />
+                        </g>
+                    </svg>
                     <!-- Moon Icon -->
-                    <svg class="moon-icon" viewBox="0 0 24 24"><path d="M9.528 1.718a.75.75 0 0 1 .162.819A8.97 8.97 0 0 0 9 6a9 9 0 1 0 9 9 8.97 8.97 0 0 0-3.463-.69.75.75 0 0 1-.819-.162 9.002 9.002 0 0 1-5.21-3.43Z"/></svg>
+                    <svg class="moon-icon" viewBox="-4.5 -0.65 27 27">
+                        <path
+                            d="M9.528 1.718a.75.75 0 0 1 .162.819A8.97 8.97 0 0 0 9 6a9 9 0 1 0 9 9 8.97 8.97 0 0 0-3.463-.69.75.75 0 0 1-.819-.162 9.002 9.002 0 0 1-5.21-3.43Z" />
+                    </svg>
+                </button>
+
+                <!-- Hamburger (visible at 900px and below) -->
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false"
+                    aria-controls="mobileMenu">
+                    <span></span><span></span><span></span>
                 </button>
             </div>
         </div>
     </header>
+
+    <!-- Mobile Navigation (slides down from under the header) -->
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#work">Work</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#contact">Contact</a>
+    </nav>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -55,23 +92,38 @@
                     <span class="role-badge">Smart Contract Developer</span>
                 </div>
                 <p class="hero-desc">
-                    Blockchain developer specialising in Solidity Smart Contract development and Zero-Knowledge Cryptography, focusing on DeFi Protocols, on-chain automation, and rigorous testing.
+                    Blockchain developer specialising in Solidity Smart Contract development and Zero-Knowledge
+                    Cryptography, focusing on DeFi Protocols, on-chain automation, and rigorous testing.
                 </p>
                 <div class="hero-actions">
                     <a href="#work" class="btn btn-primary">See My Work</a>
                     <a href="#contact" class="btn btn-secondary">Contact Me</a>
                     <div class="social-links">
-                        <a href="https://github.com/04arush" class="social-icon-link" aria-label="GitHub" target="_blank">
-                            <svg viewBox="0 0 24 24"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.09 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.13-.02-2.05-3.2.7-3.88-1.35-3.88-1.35-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11.06 11.06 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.8 1.19 1.83 1.19 3.09 0 4.43-2.69 5.41-5.25 5.7.41.36.78 1.07.78 2.15 0 1.55-.01 2.8-.01 3.18 0 .3.2.66.79.55A11.5 11.5 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5z"/></svg>
+                        <a href="https://github.com/04arush" class="social-icon-link" aria-label="GitHub"
+                            target="_blank">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12 .5C5.73.5.5 5.73.5 12c0 5.09 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.13-.02-2.05-3.2.7-3.88-1.35-3.88-1.35-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11.06 11.06 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.8 1.19 1.83 1.19 3.09 0 4.43-2.69 5.41-5.25 5.7.41.36.78 1.07.78 2.15 0 1.55-.01 2.8-.01 3.18 0 .3.2.66.79.55A11.5 11.5 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5z" />
+                            </svg>
                         </a>
-                        <a href="https://linkedin.com/in/04arush" class="social-icon-link" aria-label="LinkedIn" target="_blank">
-                            <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+                        <a href="https://linkedin.com/in/04arush" class="social-icon-link" aria-label="LinkedIn"
+                            target="_blank">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z" />
+                            </svg>
                         </a>
                         <a href="https://x.com/04arush" class="social-icon-link" aria-label="Twitter" target="_blank">
-                            <svg viewBox="0 0 24 24"><path d="M18.9 1.65h3.68l-8.04 9.19L24 22.35h-7.41l-5.8-7.58-6.64 7.58H.46l8.6-9.83L0 1.65h7.6l5.24 6.93 6.06-6.93zm-1.29 18.5h2.04L6.49 3.73H4.3L17.61 20.15z"/></svg>
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M18.9 1.65h3.68l-8.04 9.19L24 22.35h-7.41l-5.8-7.58-6.64 7.58H.46l8.6-9.83L0 1.65h7.6l5.24 6.93 6.06-6.93zm-1.29 18.5h2.04L6.49 3.73H4.3L17.61 20.15z" />
+                            </svg>
                         </a>
                         <a href="mailto:04arush@gmail.com" class="social-icon-link" aria-label="Email" target="_blank">
-                            <svg viewBox="0 0 24 24"><path d="M2 4h20a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1zm18.52 2H3.48L12 12.4 20.52 6zM3 7.24V18h18V7.24l-8.65 6.65a1 1 0 0 1-1.2 0L3 7.24z"/></svg>
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M2 4h20a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1zm18.52 2H3.48L12 12.4 20.52 6zM3 7.24V18h18V7.24l-8.65 6.65a1 1 0 0 1-1.2 0L3 7.24z" />
+                            </svg>
                         </a>
                     </div>
                 </div>
@@ -87,7 +139,13 @@
             <div class="about-grid">
                 <div class="about-card">
                     <p class="about-text">
-                        Blockchain developer specialising in Solidity Smart Contract development and Zero-Knowledge Cryptography, with a comprehensive foundation in EVM architecture, advanced security, fuzz testing, and arithmetic circuits. Experienced in authoring ZK circuits in Noir and Circom, deploying automated protocols with Chainlink oracles, and building robust cryptographic verifiers across both smart contract and systems-level tracks. Passionate about secure protocol design, decentralized systems architecture, and advancing toward specialized global engineering opportunities.
+                        Blockchain developer specialising in Solidity Smart Contract development and Zero-Knowledge
+                        Cryptography, with a comprehensive foundation in EVM architecture, advanced security, fuzz
+                        testing, and arithmetic circuits. Experienced in authoring ZK circuits in Noir and Circom,
+                        deploying automated protocols with Chainlink oracles, and building robust cryptographic
+                        verifiers across both smart contract and systems-level tracks. Passionate about secure protocol
+                        design, decentralized systems architecture, and advancing toward specialized global engineering
+                        opportunities.
                     </p>
                 </div>
                 <div class="about-meta-box">
@@ -173,49 +231,56 @@
                                     <h4>Noir Programming &amp; ZK Circuits</h4>
                                     <span>Cyfrin Updraft · Apr 2026</span>
                                 </div>
-                                <a href="https://profiles.cyfrin.io/u/arush/achievements/noir-programming-and-zk-circuits" class="cert-link" target="_blank">Verify ↗</a>
+                                <a href="https://profiles.cyfrin.io/u/arush/achievements/noir-programming-and-zk-circuits"
+                                    class="cert-link" target="_blank">Verify ↗</a>
                             </div>
                             <div class="cert-card">
                                 <div class="cert-info">
                                     <h4>Fundamentals of Zero-Knowledge Proofs</h4>
                                     <span>Cyfrin Updraft · Mar 2026</span>
                                 </div>
-                                <a href="https://profiles.cyfrin.io/u/arush/achievements/fundamentals-of-zero-knowledge-proofs" class="cert-link" target="_blank">Verify ↗</a>
+                                <a href="https://profiles.cyfrin.io/u/arush/achievements/fundamentals-of-zero-knowledge-proofs"
+                                    class="cert-link" target="_blank">Verify ↗</a>
                             </div>
                             <div class="cert-card">
                                 <div class="cert-info">
                                     <h4>Advanced Foundry</h4>
                                     <span>Cyfrin Updraft · Mar 2026</span>
                                 </div>
-                                <a href="https://profiles.cyfrin.io/u/arush/achievements/advanced-foundry" class="cert-link" target="_blank">Verify ↗</a>
+                                <a href="https://profiles.cyfrin.io/u/arush/achievements/advanced-foundry"
+                                    class="cert-link" target="_blank">Verify ↗</a>
                             </div>
                             <div class="cert-card">
                                 <div class="cert-info">
                                     <h4>Foundry Fundamentals</h4>
                                     <span>Cyfrin Updraft · Mar 2026</span>
                                 </div>
-                                <a href="https://profiles.cyfrin.io/u/arush/achievements/foundry" class="cert-link" target="_blank">Verify ↗</a>
+                                <a href="https://profiles.cyfrin.io/u/arush/achievements/foundry" class="cert-link"
+                                    target="_blank">Verify ↗</a>
                             </div>
                             <div class="cert-card">
                                 <div class="cert-info">
                                     <h4>Rust Programming Basics</h4>
                                     <span>Cyfrin Updraft · Feb 2026</span>
                                 </div>
-                                <a href="https://profiles.cyfrin.io/u/arush/achievements/rust-programming-basics" class="cert-link" target="_blank">Verify ↗</a>
+                                <a href="https://profiles.cyfrin.io/u/arush/achievements/rust-programming-basics"
+                                    class="cert-link" target="_blank">Verify ↗</a>
                             </div>
                             <div class="cert-card">
                                 <div class="cert-info">
                                     <h4>Solidity Smart Contract Development</h4>
                                     <span>Cyfrin Updraft · Jan 2026</span>
                                 </div>
-                                <a href="https://profiles.cyfrin.io/u/arush/achievements/solidity" class="cert-link" target="_blank">Verify ↗</a>
+                                <a href="https://profiles.cyfrin.io/u/arush/achievements/solidity" class="cert-link"
+                                    target="_blank">Verify ↗</a>
                             </div>
                             <div class="cert-card">
                                 <div class="cert-info">
                                     <h4>Blockchain Basics</h4>
                                     <span>Cyfrin Updraft · Dec 2025</span>
                                 </div>
-                                <a href="https://profiles.cyfrin.io/u/arush/achievements/blockchain-basics" class="cert-link" target="_blank">Verify ↗</a>
+                                <a href="https://profiles.cyfrin.io/u/arush/achievements/blockchain-basics"
+                                    class="cert-link" target="_blank">Verify ↗</a>
                             </div>
                         </div>
                     </div>
@@ -232,30 +297,31 @@
             <h2 class="section-heading">Work &amp; Experience</h2>
 
             <!-- Experience Subsection -->
-            <!--<h2 class="work-subheading">Experience</h2>
+            <h3 class="work-subheading" style="margin-top: 0;">Experience</h3>
             <div class="experience-list">
                 <div class="experience-card">
                     <div class="experience-header">
-                        <h4>Smart Contract &amp; ZK Engineer <span>— Freelance / Protocol Dev</span></h4>
-                        <span class="experience-date">2025 – Present</span>
+                        <h4>
+                            Blockchain Protocol Engineer
+                            <a href="https://www.linkedin.com/company/cubane/" class="experience-link" target="_blank"
+                                rel="noopener noreferrer" aria-label="LinkedIn (opens in a new tab)">— Cubane <span
+                                    class="link-arrow">↗</span></a>
+                        </h4>
+                        <span class="experience-date">Oct 2026 – Present</span>
                     </div>
-                    <p class="experience-desc">
-                        Designing and auditing secure Solidity smart contracts, writing arithmetic circuits in Noir and Circom, and deploying decentralized protocols featuring automated keepers and cryptographic proof verifiers.
-                    </p>
-                    <div class="project-stack">Solidity · Foundry · Noir · Circom · Barretenberg</div>
-                </div>
-
-                <div class="experience-card">
-                    <div class="experience-header">
-                        <h4>Protocol Engineering &amp; Hackathons <span>— Builder &amp; Participant</span></h4>
-                        <span class="experience-date">2025 – 2026</span>
+                    <div class="experience-meta">
+                        <span>Hybrid · Part-time</span>
                     </div>
-                    <p class="experience-desc">
-                        Participated in major global Web3 hackathons including ETHOnline and Frostbyte, prototyping privacy-preserving verification architectures and automated on-chain financial primitives.
-                    </p>
-                    <div class="project-stack">Chainlink Automation · Next.js · TypeScript · Viem</div>
+                    <ul class="experience-points">
+                        <li>Design and develop scalable blockchain architecture for Cubane's platform, working directly
+                            with the founders and the product and design teams.</li>
+                        <li>Build secure smart contracts, decentralised protocol components and off-chain integrations.
+                        </li>
+                        <li>Monitor and optimise protocol performance for efficiency, security and reliability.</li>
+                    </ul>
+                    <div class="project-stack">Rust · Go · Solidity · Noir · TypeScript</div>
                 </div>
-            </div>-->
+            </div>
 
             <h2 class="work-subheading" style="margin-top: 50px;">Featured Projects</h2>
             <div class="projects-grid">
@@ -263,28 +329,39 @@
                     <div>
                         <div class="project-header-row">
                             <h3 class="project-title">Zero-Knowledge: Proof of Solvency</h3>
-                            <a href="https://github.com/04arush/ZK-Proof-of-Solvency" class="github-svg-link" aria-label="GitHub Repository" target="_blank">
-                                <svg viewBox="0 0 24 24"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.09 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.13-.02-2.05-3.2.7-3.88-1.35-3.88-1.35-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11.06 11.06 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.8 1.19 1.83 1.19 3.09 0 4.43-2.69 5.41-5.25 5.7.41.36.78 1.07.78 2.15 0 1.55-.01 2.8-.01 3.18 0 .3.2.66.79.55A11.5 11.5 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5z"/></svg>
+                            <a href="https://github.com/04arush/ZK-Proof-of-Solvency" class="github-svg-link"
+                                aria-label="GitHub Repository" target="_blank">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 .5C5.73.5.5 5.73.5 12c0 5.09 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.13-.02-2.05-3.2.7-3.88-1.35-3.88-1.35-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11.06 11.06 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.8 1.19 1.83 1.19 3.09 0 4.43-2.69 5.41-5.25 5.7.41.36.78 1.07.78 2.15 0 1.55-.01 2.8-.01 3.18 0 .3.2.66.79.55A11.5 11.5 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5z" />
+                                </svg>
                             </a>
                         </div>
                         <span class="project-badge">Protocol</span>
                         <p class="project-desc">
-                            Proof-of-solvency protocol: a custodian proves liabilities coverage and honest per-user inclusion without exposing account data using a Noir circuit over a Merkle Sum Tree.
+                            Proof-of-solvency protocol: a custodian proves liabilities coverage and honest per-user
+                            inclusion without exposing account data using a Noir circuit over a Merkle Sum Tree.
                         </p>
                     </div>
-                    <div class="project-stack">Noir · Merkle Sum Trees · Poseidon · Barretenberg · Solidity · Foundry</div>
+                    <div class="project-stack">Noir · Merkle Sum Trees · Poseidon · Barretenberg · Solidity · Foundry
+                    </div>
                 </div>
                 <div class="project-card">
                     <div>
                         <div class="project-header-row">
                             <h3 class="project-title">Intent-Based Batch Auction Exchange</h3>
-                            <a href="https://github.com/04arush/Batch-Auction-Exchange" class="github-svg-link" aria-label="GitHub Repository" target="_blank">
-                                <svg viewBox="0 0 24 24"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.09 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.13-.02-2.05-3.2.7-3.88-1.35-3.88-1.35-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11.06 11.06 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.8 1.19 1.83 1.19 3.09 0 4.43-2.69 5.41-5.25 5.7.41.36.78 1.07.78 2.15 0 1.55-.01 2.8-.01 3.18 0 .3.2.66.79.55A11.5 11.5 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5z"/></svg>
+                            <a href="https://github.com/04arush/Batch-Auction-Exchange" class="github-svg-link"
+                                aria-label="GitHub Repository" target="_blank">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 .5C5.73.5.5 5.73.5 12c0 5.09 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.13-.02-2.05-3.2.7-3.88-1.35-3.88-1.35-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11.06 11.06 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.8 1.19 1.83 1.19 3.09 0 4.43-2.69 5.41-5.25 5.7.41.36.78 1.07.78 2.15 0 1.55-.01 2.8-.01 3.18 0 .3.2.66.79.55A11.5 11.5 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5z" />
+                                </svg>
                             </a>
                         </div>
                         <span class="project-badge">Smart Contracts</span>
                         <p class="project-desc">
-                            An on-chain spot-trading exchange where users submit signed EIP-712 trade intents during fixed epochs, settled atomically at a uniform clearing price via independent solvers.
+                            An on-chain spot-trading exchange where users submit signed EIP-712 trade intents during
+                            fixed epochs, settled atomically at a uniform clearing price via independent solvers.
                         </p>
                     </div>
                     <div class="project-stack">Solidity · Foundry · OpenZeppelin · Slither · CI Workflows</div>
@@ -293,14 +370,19 @@
                     <div>
                         <div class="project-header-row">
                             <h3 class="project-title">ZK Undercollateralized Lending Protocol</h3>
-                            <a href="https://github.com/04arush/ZK-Powered-Uncollateralized-Lending-Protocol" class="github-svg-link" aria-label="GitHub Repository" target="_blank">
-                                <svg viewBox="0 0 24 24"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.09 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.13-.02-2.05-3.2.7-3.88-1.35-3.88-1.35-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11.06 11.06 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.8 1.19 1.83 1.19 3.09 0 4.43-2.69 5.41-5.25 5.7.41.36.78 1.07.78 2.15 0 1.55-.01 2.8-.01 3.18 0 .3.2.66.79.55A11.5 11.5 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5z"/></svg>
+                            <a href="https://github.com/04arush/ZK-Powered-Uncollateralized-Lending-Protocol"
+                                class="github-svg-link" aria-label="GitHub Repository" target="_blank">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 .5C5.73.5.5 5.73.5 12c0 5.09 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.13-.02-2.05-3.2.7-3.88-1.35-3.88-1.35-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11.06 11.06 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.8 1.19 1.83 1.19 3.09 0 4.43-2.69 5.41-5.25 5.7.41.36.78 1.07.78 2.15 0 1.55-.01 2.8-.01 3.18 0 .3.2.66.79.55A11.5 11.5 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5z" />
+                                </svg>
                             </a>
                         </div>
                         <span class="project-badge">Protocol</span>
                         <span class="project-badge">Smart Contracts</span>
                         <p class="project-desc">
-                            Undercollateralised lending (50% collateral): a Noir circuit proves credit score and income exceed thresholds without revealing them, verified via Barretenberg verifier.
+                            Undercollateralised lending (50% collateral): a Noir circuit proves credit score and income
+                            exceed thresholds without revealing them, verified via Barretenberg verifier.
                         </p>
                     </div>
                     <div class="project-stack">Noir · Barretenberg · Solidity · Foundry · Next.js</div>
@@ -310,14 +392,19 @@
                     <div>
                         <div class="project-header-row">
                             <h3 class="project-title">ZKVote DApp</h3>
-                            <a href="https://github.com/04arush/ZKVote" class="github-svg-link" aria-label="GitHub Repository" target="_blank">
-                                <svg viewBox="0 0 24 24"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.09 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.13-.02-2.05-3.2.7-3.88-1.35-3.88-1.35-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11.06 11.06 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.8 1.19 1.83 1.19 3.09 0 4.43-2.69 5.41-5.25 5.7.41.36.78 1.07.78 2.15 0 1.55-.01 2.8-.01 3.18 0 .3.2.66.79.55A11.5 11.5 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5z"/></svg>
+                            <a href="https://github.com/04arush/ZKVote" class="github-svg-link"
+                                aria-label="GitHub Repository" target="_blank">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 .5C5.73.5.5 5.73.5 12c0 5.09 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.13-.02-2.05-3.2.7-3.88-1.35-3.88-1.35-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11.06 11.06 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.8 1.19 1.83 1.19 3.09 0 4.43-2.69 5.41-5.25 5.7.41.36.78 1.07.78 2.15 0 1.55-.01 2.8-.01 3.18 0 .3.2.66.79.55A11.5 11.5 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5z" />
+                                </svg>
                             </a>
                         </div>
                         <span class="project-badge">Protocol</span>
                         <span class="project-badge">Smart Contracts</span>
                         <p class="project-desc">
-                            Commit-nullifier voting DApp: Circom circuit binds a Poseidon commitment to the vote and derives a per-proposal nullifier with Groth16 proof verification.
+                            Commit-nullifier voting DApp: Circom circuit binds a Poseidon commitment to the vote and
+                            derives a per-proposal nullifier with Groth16 proof verification.
                         </p>
                     </div>
                     <div class="project-stack">Circom · Groth16 · snarkjs · Poseidon · Solidity · Foundry</div>
@@ -327,13 +414,18 @@
                     <div>
                         <div class="project-header-row">
                             <h3 class="project-title">Provably Fair Raffle</h3>
-                            <a href="https://github.com/04arush/Raffle-Contest" class="github-svg-link" aria-label="GitHub Repository" target="_blank">
-                                <svg viewBox="0 0 24 24"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.09 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.13-.02-2.05-3.2.7-3.88-1.35-3.88-1.35-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11.06 11.06 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.8 1.19 1.83 1.19 3.09 0 4.43-2.69 5.41-5.25 5.7.41.36.78 1.07.78 2.15 0 1.55-.01 2.8-.01 3.18 0 .3.2.66.79.55A11.5 11.5 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5z"/></svg>
+                            <a href="https://github.com/04arush/Raffle-Contest" class="github-svg-link"
+                                aria-label="GitHub Repository" target="_blank">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 .5C5.73.5.5 5.73.5 12c0 5.09 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.13-.02-2.05-3.2.7-3.88-1.35-3.88-1.35-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11.06 11.06 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.8 1.19 1.83 1.19 3.09 0 4.43-2.69 5.41-5.25 5.7.41.36.78 1.07.78 2.15 0 1.55-.01 2.8-.01 3.18 0 .3.2.66.79.55A11.5 11.5 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5z" />
+                                </svg>
                             </a>
                         </div>
                         <span class="project-badge">Smart Contracts</span>
                         <p class="project-desc">
-                            Autonomous on-chain raffle with no admin intervention utilizing Chainlink VRF v2.5 for winner selection and Chainlink Automation for upkeep.
+                            Autonomous on-chain raffle with no admin intervention utilizing Chainlink VRF v2.5 for
+                            winner selection and Chainlink Automation for upkeep.
                         </p>
                     </div>
                     <div class="project-stack">Solidity · Foundry · Chainlink VRF · Chainlink Automation</div>
@@ -343,13 +435,18 @@
                     <div>
                         <div class="project-header-row">
                             <h3 class="project-title">StreamProof</h3>
-                            <a href="https://github.com/04arush/StreamProof" class="github-svg-link" aria-label="GitHub Repository" target="_blank">
-                                <svg viewBox="0 0 24 24"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.09 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.13-.02-2.05-3.2.7-3.88-1.35-3.88-1.35-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11.06 11.06 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.8 1.19 1.83 1.19 3.09 0 4.43-2.69 5.41-5.25 5.7.41.36.78 1.07.78 2.15 0 1.55-.01 2.8-.01 3.18 0 .3.2.66.79.55A11.5 11.5 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5z"/></svg>
+                            <a href="https://github.com/04arush/StreamProof" class="github-svg-link"
+                                aria-label="GitHub Repository" target="_blank">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 .5C5.73.5.5 5.73.5 12c0 5.09 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.13-.02-2.05-3.2.7-3.88-1.35-3.88-1.35-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11.06 11.06 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.8 1.19 1.83 1.19 3.09 0 4.43-2.69 5.41-5.25 5.7.41.36.78 1.07.78 2.15 0 1.55-.01 2.8-.01 3.18 0 .3.2.66.79.55A11.5 11.5 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5z" />
+                                </svg>
                             </a>
                         </div>
                         <span class="project-badge">Protocol</span>
                         <p class="project-desc">
-                            A platform which commits streaming data for a track as a merkle root and artist claims payout tiers based on stream counts verified via a zero-knowledge circuit.
+                            A platform which commits streaming data for a track as a merkle root and artist claims
+                            payout tiers based on stream counts verified via a zero-knowledge circuit.
                         </p>
                     </div>
                     <div class="project-stack">Noir · Poseidon2 · Barretenberg · ENSv2 · Privy</div>
@@ -374,14 +471,16 @@
             <div class="hackathon-grid">
                 <div class="hackathon-card">
                     <h4>ETHOnline 2026</h4>
-                    <p>Built <b>StreamProof</b>, a private royalty-tier verification protocol: a Noir circuit verified on-chain via UltraHonk on Arc Testnet.</p>
+                    <p>Built <b>StreamProof</b>, a private royalty-tier verification protocol: a Noir circuit verified
+                        on-chain via UltraHonk on Arc Testnet.</p>
                     <div class="hackathon-meta">
                         <span>Result: Participation Award</span>
                     </div>
                 </div>
                 <div class="hackathon-card">
                     <h4>Frostbyte Hackathon</h4>
-                    <p>Qualified with the <b>Employee Payroll Manager</b> (Chainlink Automation), then advanced to the finale with the <b>ZK lending protocol</b>.</p>
+                    <p>Qualified with the <b>Employee Payroll Manager</b> (Chainlink Automation), then advanced to the
+                        finale with the <b>ZK lending protocol</b>.</p>
                     <div class="hackathon-meta">
                         <span>Result: Finalist / Participation Award</span>
                     </div>
@@ -402,32 +501,38 @@
                         <div class="timeline-item">
                             <div class="timeline-date">Phase 1</div>
                             <div class="timeline-title">Cryptography &amp; EVM Foundations</div>
-                            <div class="timeline-desc">Consensus mechanisms, Digital signatures, Hashing, Merkle trees, and EVM</div>
+                            <div class="timeline-desc">Consensus mechanisms, Digital signatures, Hashing, Merkle trees,
+                                and EVM</div>
                         </div>
                         <div class="timeline-item">
                             <div class="timeline-date">Phase 2</div>
                             <div class="timeline-title">Solidity &amp; Foundry</div>
-                            <div class="timeline-desc">Soldity language, Foundry Framework, OOPs, Data Structures, Foundry Testing, Chainlink, and OpenZeppelin</div>
+                            <div class="timeline-desc">Soldity language, Foundry Framework, OOPs, Data Structures,
+                                Foundry Testing, Chainlink, and OpenZeppelin</div>
                         </div>
                         <div class="timeline-item">
                             <div class="timeline-date">Phase 3</div>
                             <div class="timeline-title">DeFi &amp; Tokenization</div>
-                            <div class="timeline-desc">Common Token Standards, Upgradability patterns, Mitigation techniques, AMM, Lending & Collaterals, Liquidation, and Flash Loans</div>
+                            <div class="timeline-desc">Common Token Standards, Upgradability patterns, Mitigation
+                                techniques, AMM, Lending & Collaterals, Liquidation, and Flash Loans</div>
                         </div>
                         <div class="timeline-item">
                             <div class="timeline-date">Phase 4</div>
                             <div class="timeline-title">TypeScript &amp; Frontend Integration</div>
-                            <div class="timeline-desc">TypeScript language, Viem, Wagmi, and Asynchronous paradigms</div>
+                            <div class="timeline-desc">TypeScript language, Viem, Wagmi, and Asynchronous paradigms
+                            </div>
                         </div>
                         <div class="timeline-item">
                             <div class="timeline-date">Phase 5</div>
                             <div class="timeline-title">Smart Contract Security</div>
-                            <div class="timeline-desc">Slither, Mythril, Aderyn, Echidna, Common vulnerabilities, and Audit reporting</div>
+                            <div class="timeline-desc">Slither, Mythril, Aderyn, Echidna, Common vulnerabilities, and
+                                Audit reporting</div>
                         </div>
                         <div class="timeline-item" id="timeline-item-ongoing">
                             <div class="timeline-date" id="timeline-date-ongoing">Phase 6</div>
                             <div class="timeline-title">Data Indexing &amp; RPC Backend</div>
-                            <div class="timeline-desc">Event logs, Transaction receipts, Custom subgraphs, PostgreSQL, and WebSocket event streaming</div>
+                            <div class="timeline-desc">Event logs, Transaction receipts, Custom subgraphs, PostgreSQL,
+                                and WebSocket event streaming</div>
                         </div>
                     </div>
                 </div>
@@ -438,37 +543,45 @@
                         <div class="timeline-item">
                             <div class="timeline-date">Phase 1</div>
                             <div class="timeline-title">Core Cryptography &amp; P2P Networking</div>
-                            <div class="timeline-desc">Elliptic Curve Cryptography, Peer discovery, Data serialization, and State verification trees</div>
+                            <div class="timeline-desc">Elliptic Curve Cryptography, Peer discovery, Data serialization,
+                                and State verification trees</div>
                         </div>
                         <div class="timeline-item">
                             <div class="timeline-date">Phase 2</div>
                             <div class="timeline-title">Rust &amp; P2P Architecture</div>
-                            <div class="timeline-desc">Rust language, Ownership, Concurrency, Async networking (Tokio), Abstraction, libp2p, Mempool, and Alloy</div>
+                            <div class="timeline-desc">Rust language, Ownership, Concurrency, Async networking (Tokio),
+                                Abstraction, libp2p, Mempool, and Alloy</div>
                         </div>
                         <div class="timeline-item">
                             <div class="timeline-date">Phase 3</div>
                             <div class="timeline-title">Consensus Synchronization</div>
-                            <div class="timeline-desc">State transitions, Block execution engine pipelines, Client synchronization paradigms, and reorgs</div>
+                            <div class="timeline-desc">State transitions, Block execution engine pipelines, Client
+                                synchronization paradigms, and reorgs</div>
                         </div>
                         <div class="timeline-item">
                             <div class="timeline-date">Phase 4</div>
                             <div class="timeline-title">SNARKs &amp; STARKs</div>
-                            <div class="timeline-desc">Noir, Barretenberg, ZK-Proofs, On-chain verification, Circom, Groth16, and scalar fields</div>
+                            <div class="timeline-desc">Noir, Barretenberg, ZK-Proofs, On-chain verification, Circom,
+                                Groth16, and scalar fields</div>
                         </div>
                         <div class="timeline-item" id="timeline-item-ongoing">
                             <div class="timeline-date" id="timeline-date-ongoing">Phase 5</div>
                             <div class="timeline-title">Go &amp; Cosmos SDK</div>
-                            <div class="timeline-desc">Go language, network daemons, Cosmos SDK framework, CometBFT consensus engine, and ABCI integration</div>
+                            <div class="timeline-desc">Go language, network daemons, Cosmos SDK framework, CometBFT
+                                consensus engine, and ABCI integration</div>
                         </div>
                         <div class="timeline-item" id="timeline-item-upcoming">
                             <div class="timeline-date" id="timeline-date-upcoming">Phase 6</div>
-                            <div class="timeline-title">Bridges, Interpolarity, Arithmetic Circuits &amp; Proving Systems</div>
-                            <div class="timeline-desc">Verification bridges architectures, Trusted vs Trustless protocols, IBC protocol, R1CS, Plonkish, and Arkworks</div>
+                            <div class="timeline-title">Bridges, Interpolarity, Arithmetic Circuits &amp; Proving
+                                Systems</div>
+                            <div class="timeline-desc">Verification bridges architectures, Trusted vs Trustless
+                                protocols, IBC protocol, R1CS, Plonkish, and Arkworks</div>
                         </div>
                         <div class="timeline-item" id="timeline-item-upcoming">
                             <div class="timeline-date" id="timeline-date-upcoming">Phase 7</div>
                             <div class="timeline-title">zkVMs &amp; Recursive Proofs</div>
-                            <div class="timeline-desc">zkVM architecture (RISC Zero & SP1), Recursive proofs, and Compression techniques</div>
+                            <div class="timeline-desc">zkVM architecture (RISC Zero & SP1), Recursive proofs, and
+                                Compression techniques</div>
                         </div>
                     </div>
                 </div>
@@ -485,44 +598,62 @@
                 <div class="contact-info-side">
                     <h3>Let's build together.</h3>
                     <p>
-                        Whether you want to discuss zero-knowledge architecture, smart contract security, or potential collaboration, my inbox is always open.
+                        Whether you want to discuss zero-knowledge architecture, smart contract security, or potential
+                        collaboration, my inbox is always open.
                     </p>
                     <div class="contact-direct-links">
                         <a href="mailto:04arush@gmail.com" class="contact-direct-item">
-                            <svg viewBox="0 0 24 24"><path d="M2 4h20a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1zm18.52 2H3.48L12 12.4 20.52 6zM3 7.24V18h18V7.24l-8.65 6.65a1 1 0 0 1-1.2 0L3 7.24z"/></svg>
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M2 4h20a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1zm18.52 2H3.48L12 12.4 20.52 6zM3 7.24V18h18V7.24l-8.65 6.65a1 1 0 0 1-1.2 0L3 7.24z" />
+                            </svg>
                             04arush@gmail.com
                         </a>
                         <a href="https://github.com/04arush" class="contact-direct-item" target="_blank">
-                            <svg viewBox="0 0 24 24"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.09 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.13-.02-2.05-3.2.7-3.88-1.35-3.88-1.35-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11.06 11.06 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.8 1.19 1.83 1.19 3.09 0 4.43-2.69 5.41-5.25 5.7.41.36.78 1.07.78 2.15 0 1.55-.01 2.8-.01 3.18 0 .3.2.66.79.55A11.5 11.5 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5z"/></svg>
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12 .5C5.73.5.5 5.73.5 12c0 5.09 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.13-.02-2.05-3.2.7-3.88-1.35-3.88-1.35-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11.06 11.06 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.8 1.19 1.83 1.19 3.09 0 4.43-2.69 5.41-5.25 5.7.41.36.78 1.07.78 2.15 0 1.55-.01 2.8-.01 3.18 0 .3.2.66.79.55A11.5 11.5 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5z" />
+                            </svg>
                             04arush
                         </a>
                         <a href="https://linkedin.com/in/04arush" class="contact-direct-item" target="_blank">
-                            <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z" />
+                            </svg>
                             04arush
                         </a>
                         <a href="https://x.com/04arush" class="contact-direct-item" target="_blank">
-                            <svg viewBox="0 0 24 24"><path d="M18.9 1.65h3.68l-8.04 9.19L24 22.35h-7.41l-5.8-7.58-6.64 7.58H.46l8.6-9.83L0 1.65h7.6l5.24 6.93 6.06-6.93zm-1.29 18.5h2.04L6.49 3.73H4.3L17.61 20.15z"/></svg>
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M18.9 1.65h3.68l-8.04 9.19L24 22.35h-7.41l-5.8-7.58-6.64 7.58H.46l8.6-9.83L0 1.65h7.6l5.24 6.93 6.06-6.93zm-1.29 18.5h2.04L6.49 3.73H4.3L17.61 20.15z" />
+                            </svg>
                             04arush
                         </a>
                     </div>
                 </div>
                 <div class="contact-form-card">
-                    <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-                        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+                    <form id="contactForm" action="https://formspree.io/f/xrpeladp" method="POST">
+                        <input type="hidden" name="_subject" value="New message from 04arush.github.io">
+                        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
 
                         <div class="form-group">
                             <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name" class="form-control" required placeholder="Vitalik Buterin">
+                            <input type="text" id="name" name="name" class="form-control" required
+                                placeholder="Vitalik Buterin">
                         </div>
                         <div class="form-group">
                             <label for="email">Your Email</label>
-                            <input type="email" id="email" name="email" class="form-control" required placeholder="vitalik@ethereum.org">
+                            <input type="email" id="email" name="email" class="form-control" required
+                                placeholder="vitalik@ethereum.org">
                         </div>
                         <div class="form-group">
                             <label for="message">Your Message</label>
-                            <textarea id="message" name="message" class="form-control" required placeholder="Let's talk about ZK circuits..."></textarea>
+                            <textarea id="message" name="message" class="form-control" required
+                                placeholder="Let's talk about ZK circuits..."></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Send Message</button>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Send
+                            Message</button>
                         <div id="formStatus" class="form-status"></div>
                     </form>
                 </div>
@@ -532,4 +663,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
