@@ -1,21 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // ── Theme Switcher with localStorage memory ──
+    // ── Theme toggle (state handled by theme.js) ──
     const themeSwitch = document.getElementById('themeSwitch');
-    const htmlElement = document.documentElement;
-
-    // Check saved theme preference or default to dark
-    const savedTheme = localStorage.getItem('portfolio_theme');
-    if (savedTheme) {
-        htmlElement.setAttribute('data-theme', savedTheme);
-    } else {
-        htmlElement.setAttribute('data-theme', 'dark');
-    }
-
     themeSwitch.addEventListener('click', () => {
-        const currentTheme = htmlElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        htmlElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('portfolio_theme', newTheme);
+        window.SiteTheme.set(window.SiteTheme.get() === 'dark' ? 'light' : 'dark');
     });
 
     // ── Resume Popup Dropdown ──
@@ -75,11 +62,34 @@ document.addEventListener('DOMContentLoaded', () => {
         if (window.innerWidth > 900) setMenu(false);
     });
 
+    // ── Header shadow once the page scrolls ──
+    const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // ── Highlight the nav link of the section in view (home page) ──
+    const navLinks = [...document.querySelectorAll('.nav-links a[href^="#"], .mobile-menu a[href^="#"]')];
+    const spySections = [...new Set(navLinks.map((a) => a.getAttribute('href')))]
+        .map((h) => document.querySelector(h)).filter(Boolean);
+    if (spySections.length && 'IntersectionObserver' in window) {
+        const spy = new IntersectionObserver((entries) => {
+            entries.forEach((en) => {
+                if (!en.isIntersecting) return;
+                const id = '#' + en.target.id;
+                navLinks.forEach((a) => a.classList.toggle('active', a.getAttribute('href') === id));
+            });
+        }, { rootMargin: '-45% 0px -50% 0px' });
+        spySections.forEach((sec) => spy.observe(sec));
+    }
+
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
     // ── Contact Form (AJAX, no redirect) ──
     const contactForm = document.getElementById('contactForm');
     const formStatus = document.getElementById('formStatus');
 
-    contactForm.addEventListener('submit', async (e) => {
+    if (contactForm) contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const btn = contactForm.querySelector('button[type="submit"]');
         const originalText = btn.textContent;
@@ -109,4 +119,4 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.textContent = originalText;
         }
     });
-});
+});
