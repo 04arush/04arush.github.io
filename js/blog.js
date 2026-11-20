@@ -49,8 +49,12 @@
         if (cached && Date.now() - cached.t < CACHE_TTL) return { ...cached, source: 'cache' };
 
         try {
+            // dev.to's CDN can serve a day-old list for the same URL, and it ignores
+            // unknown query params. per_page *is* part of its cache key, so rotate it
+            // every 15 min (100–999) to pick up new posts quickly.
+            const perPage = 100 + (Math.floor(Date.now() / 9e5) % 900);
             const articles = await fetchJSON(
-                `https://dev.to/api/articles?username=${encodeURIComponent(CFG.devtoUser)}&per_page=1000`
+                `https://dev.to/api/articles?username=${encodeURIComponent(CFG.devtoUser)}&per_page=${perPage}`
             );
 
             // Companion-code folders, one request per repo used by a series
@@ -404,15 +408,17 @@
     }
 
     // ── Boot ──────────────────────────────────────────────────
+    // Start loading straight away; other modules (e.g. the home page stats)
+    // can await window.BlogStore for the same data.
+    window.BlogStore = loadRaw().then((raw) => ({ model: buildModel(raw), source: raw.source }));
+
     async function boot() {
         const home = document.getElementById('blogHome');
         const archive = document.getElementById('blogArchive');
         if (!home && !archive) return;
-
-        const raw = await loadRaw();
-        const model = buildModel(raw);
-        if (home) renderHome(home, model, raw.source);
-        if (archive) renderArchive(archive, model, raw.source);
+        const { model, source } = await window.BlogStore;
+        if (home) renderHome(home, model, source);
+        if (archive) renderArchive(archive, model, source);
     }
 
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);

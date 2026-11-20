@@ -32,12 +32,25 @@ window.BLOG_CONFIG = {
         5059358: {
             description: 'What a zero-knowledge proof actually proves, explained with two analogies, plus the three properties every ZK proof needs and interactive vs non-interactive proofs.'
         },
+        5075822: {
+            description: 'Hashes, commitments and Merkle trees: the three building blocks behind almost every ZK app, with a tiny Merkle tree in Python.'
+        },
         5063679: {
             description: 'ZK proofs do two very different jobs: privacy (hide the data) and scaling (avoid redoing the work). Five real use cases and how to tell which job each one is doing.'
         }
     },
 
     fallback: [
+        {
+            id: 5075822,
+            title: 'How do you prove something is in a list without sharing the whole list?',
+            url: 'https://dev.to/grandpaarush/how-do-you-prove-something-is-in-a-list-without-sharing-the-whole-list-529d',
+            published_at: '2026-11-19T17:03:12Z',
+            reading_time_minutes: 4,
+            tag_list: ['zeroknowledge', 'cryptography', 'merkletree', 'hashing'],
+            collection_id: 46898,
+            description: ''
+        },
         {
             id: 5063679,
             title: 'What is zero-knowledge actually used for?',
